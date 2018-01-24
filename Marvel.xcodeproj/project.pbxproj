@@ -97,6 +97,12 @@
 		FA627EDC2018A5A4003740B4 /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				FA627F102018A5FE003740B4 /* Interactors */,
+				FA627F0F2018A5EC003740B4 /* Extensions */,
+				FA627F0E2018A5DE003740B4 /* Controllers */,
+				FA627F0D2018A5D6003740B4 /* ViewModels */,
+				FA627F0C2018A5CC003740B4 /* Models */,
+				FA627F0B2018A5C3003740B4 /* Layers */,
 				FA627EDD2018A5A4003740B4 /* AppDelegate.swift */,
 				FA627EDF2018A5A4003740B4 /* ViewController.swift */,
 				FA627EE12018A5A4003740B4 /* Main.storyboard */,
@@ -123,6 +129,64 @@
 				FA627EFF2018A5A5003740B4 /* Info.plist */,
 			);
 			path = MarvelUITests;
+			sourceTree = "<group>";
+		};
+		FA627F0B2018A5C3003740B4 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				FA627F122018A661003740B4 /* LocalStorage */,
+				FA627F112018A654003740B4 /* Network */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		FA627F0C2018A5CC003740B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA627F0D2018A5D6003740B4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FA627F0E2018A5DE003740B4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA627F0F2018A5EC003740B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA627F102018A5FE003740B4 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		FA627F112018A654003740B4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FA627F122018A661003740B4 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocalStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
