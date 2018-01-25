@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA151E6859D33F0BF70634 /* SuperHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C7B1D0D4A182DFE7C9B /* SuperHero.swift */; };
+		2DBA195DD349713033BF3B59 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA122345B9FB45E7C24A24 /* NetworkLayer.swift */; };
+		2DBA1D61F0418BD6AF453340 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1F3009487AC8D1E1A608 /* .swiftlint.yml */; };
 		FA627EDE2018A5A4003740B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627EDD2018A5A4003740B4 /* AppDelegate.swift */; };
-		FA627EE02018A5A4003740B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627EDF2018A5A4003740B4 /* ViewController.swift */; };
-		FA627EE32018A5A4003740B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA627EE12018A5A4003740B4 /* Main.storyboard */; };
 		FA627EE52018A5A4003740B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA627EE42018A5A4003740B4 /* Assets.xcassets */; };
 		FA627EE82018A5A4003740B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA627EE62018A5A4003740B4 /* LaunchScreen.storyboard */; };
 		FA627EF32018A5A5003740B4 /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627EF22018A5A5003740B4 /* MarvelTests.swift */; };
 		FA627EFE2018A5A5003740B4 /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627EFD2018A5A5003740B4 /* MarvelUITests.swift */; };
+		FA627F16201A0F87003740B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA627F14201A0F87003740B4 /* Main.storyboard */; };
+		FA627F19201A1001003740B4 /* SuperHeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F17201A1001003740B4 /* SuperHeroDetailViewController.swift */; };
+		FA627F1A201A1001003740B4 /* SuperHeroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F18201A1001003740B4 /* SuperHeroDetailViewController.xib */; };
+		FA627F1F201A1042003740B4 /* SuperHeroListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F1D201A1042003740B4 /* SuperHeroListViewController.swift */; };
+		FA627F20201A1042003740B4 /* SuperHeroListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F1E201A1042003740B4 /* SuperHeroListViewController.xib */; };
+		FA627F23201A12FF003740B4 /* SuperHeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F21201A12FF003740B4 /* SuperHeroTableViewCell.swift */; };
+		FA627F24201A12FF003740B4 /* SuperHeroTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F22201A12FF003740B4 /* SuperHeroTableViewCell.xib */; };
+		FA627F26201A1421003740B4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F25201A1421003740B4 /* Date+Extension.swift */; };
+		FA627F28201A1433003740B4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F27201A1433003740B4 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DBA122345B9FB45E7C24A24 /* NetworkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		2DBA1C7B1D0D4A182DFE7C9B /* SuperHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHero.swift; sourceTree = "<group>"; };
+		2DBA1F3009487AC8D1E1A608 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = file.yml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FA627EDA2018A5A4003740B4 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA627EDD2018A5A4003740B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA627EDF2018A5A4003740B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA627EE22018A5A4003740B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA627EE42018A5A4003740B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA627EE72018A5A4003740B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA627EE92018A5A4003740B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +58,15 @@
 		FA627EF92018A5A5003740B4 /* MarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA627EFD2018A5A5003740B4 /* MarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelUITests.swift; sourceTree = "<group>"; };
 		FA627EFF2018A5A5003740B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA627F15201A0F87003740B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA627F17201A1001003740B4 /* SuperHeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailViewController.swift; sourceTree = "<group>"; };
+		FA627F18201A1001003740B4 /* SuperHeroDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroDetailViewController.xib; sourceTree = "<group>"; };
+		FA627F1D201A1042003740B4 /* SuperHeroListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroListViewController.swift; sourceTree = "<group>"; };
+		FA627F1E201A1042003740B4 /* SuperHeroListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroListViewController.xib; sourceTree = "<group>"; };
+		FA627F21201A12FF003740B4 /* SuperHeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroTableViewCell.swift; sourceTree = "<group>"; };
+		FA627F22201A12FF003740B4 /* SuperHeroTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroTableViewCell.xib; sourceTree = "<group>"; };
+		FA627F25201A1421003740B4 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		FA627F27201A1433003740B4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +101,7 @@
 				FA627EF12018A5A5003740B4 /* MarvelTests */,
 				FA627EFC2018A5A5003740B4 /* MarvelUITests */,
 				FA627EDB2018A5A4003740B4 /* Products */,
+				2DBA1F3009487AC8D1E1A608 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,10 +125,9 @@
 				FA627F0C2018A5CC003740B4 /* Models */,
 				FA627F0B2018A5C3003740B4 /* Layers */,
 				FA627EDD2018A5A4003740B4 /* AppDelegate.swift */,
-				FA627EDF2018A5A4003740B4 /* ViewController.swift */,
-				FA627EE12018A5A4003740B4 /* Main.storyboard */,
 				FA627EE42018A5A4003740B4 /* Assets.xcassets */,
 				FA627EE62018A5A4003740B4 /* LaunchScreen.storyboard */,
+				FA627F14201A0F87003740B4 /* Main.storyboard */,
 				FA627EE92018A5A4003740B4 /* Info.plist */,
 			);
 			path = Marvel;
@@ -143,6 +163,7 @@
 		FA627F0C2018A5CC003740B4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA627F132018F553003740B4 /* SuperHero */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,6 +171,7 @@
 		FA627F0D2018A5D6003740B4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FA627F29201A1473003740B4 /* SuperHero */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -157,6 +179,8 @@
 		FA627F0E2018A5DE003740B4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA627F1C201A101B003740B4 /* SuperHero list */,
+				FA627F1B201A100C003740B4 /* SuperHero detail */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +188,8 @@
 		FA627F0F2018A5EC003740B4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FA627F25201A1421003740B4 /* Date+Extension.swift */,
+				FA627F27201A1433003740B4 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,6 +197,7 @@
 		FA627F102018A5FE003740B4 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				FA627F2A201A147D003740B4 /* SuperHero */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -178,6 +205,7 @@
 		FA627F112018A654003740B4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2DBA122345B9FB45E7C24A24 /* NetworkLayer.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -187,6 +215,48 @@
 			children = (
 			);
 			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		FA627F132018F553003740B4 /* SuperHero */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1C7B1D0D4A182DFE7C9B /* SuperHero.swift */,
+			);
+			path = SuperHero;
+			sourceTree = "<group>";
+		};
+		FA627F1B201A100C003740B4 /* SuperHero detail */ = {
+			isa = PBXGroup;
+			children = (
+				FA627F17201A1001003740B4 /* SuperHeroDetailViewController.swift */,
+				FA627F18201A1001003740B4 /* SuperHeroDetailViewController.xib */,
+			);
+			path = "SuperHero detail";
+			sourceTree = "<group>";
+		};
+		FA627F1C201A101B003740B4 /* SuperHero list */ = {
+			isa = PBXGroup;
+			children = (
+				FA627F1D201A1042003740B4 /* SuperHeroListViewController.swift */,
+				FA627F1E201A1042003740B4 /* SuperHeroListViewController.xib */,
+				FA627F21201A12FF003740B4 /* SuperHeroTableViewCell.swift */,
+				FA627F22201A12FF003740B4 /* SuperHeroTableViewCell.xib */,
+			);
+			path = "SuperHero list";
+			sourceTree = "<group>";
+		};
+		FA627F29201A1473003740B4 /* SuperHero */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SuperHero;
+			sourceTree = "<group>";
+		};
+		FA627F2A201A147D003740B4 /* SuperHero */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SuperHero;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,9 +366,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA627F1A201A1001003740B4 /* SuperHeroDetailViewController.xib in Resources */,
 				FA627EE82018A5A4003740B4 /* LaunchScreen.storyboard in Resources */,
+				FA627F24201A12FF003740B4 /* SuperHeroTableViewCell.xib in Resources */,
 				FA627EE52018A5A4003740B4 /* Assets.xcassets in Resources */,
-				FA627EE32018A5A4003740B4 /* Main.storyboard in Resources */,
+				2DBA1D61F0418BD6AF453340 /* .swiftlint.yml in Resources */,
+				FA627F20201A1042003740B4 /* SuperHeroListViewController.xib in Resources */,
+				FA627F16201A0F87003740B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +397,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA627EE02018A5A4003740B4 /* ViewController.swift in Sources */,
+				FA627F28201A1433003740B4 /* String+Extension.swift in Sources */,
+				FA627F1F201A1042003740B4 /* SuperHeroListViewController.swift in Sources */,
 				FA627EDE2018A5A4003740B4 /* AppDelegate.swift in Sources */,
+				FA627F19201A1001003740B4 /* SuperHeroDetailViewController.swift in Sources */,
+				2DBA151E6859D33F0BF70634 /* SuperHero.swift in Sources */,
+				FA627F26201A1421003740B4 /* Date+Extension.swift in Sources */,
+				2DBA195DD349713033BF3B59 /* NetworkLayer.swift in Sources */,
+				FA627F23201A12FF003740B4 /* SuperHeroTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,20 +440,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FA627EE12018A5A4003740B4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA627EE22018A5A4003740B4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA627EE62018A5A4003740B4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FA627EE72018A5A4003740B4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FA627F14201A0F87003740B4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA627F15201A0F87003740B4 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
