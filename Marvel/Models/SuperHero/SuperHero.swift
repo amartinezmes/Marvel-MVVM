@@ -12,7 +12,6 @@ final class SuperHero: Codable {
     private(set) var modified: Date?
 
 
-
     init(from decoder: Decoder) throws {
 
     }

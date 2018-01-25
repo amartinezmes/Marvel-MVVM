@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Alamofire
 
 final class NetworkLayer {
     static let shared: NetworkLayer = NetworkLayer()
@@ -16,6 +17,13 @@ final class NetworkLayer {
 
 //MARK: - Defaults parameters
 extension NetworkLayer {
+
+    fileprivate enum defaultParameters: String {
+        case timeStamp = "ts"
+        case hash
+        case apiKey
+    }
+
 
     fileprivate func generateDefaultParameters() -> [String: Any] {
 
