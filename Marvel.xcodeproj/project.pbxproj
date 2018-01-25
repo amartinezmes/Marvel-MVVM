@@ -19,11 +19,14 @@
 		FA627F1A201A1001003740B4 /* SuperHeroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F18201A1001003740B4 /* SuperHeroDetailViewController.xib */; };
 		FA627F1F201A1042003740B4 /* SuperHeroListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F1D201A1042003740B4 /* SuperHeroListViewController.swift */; };
 		FA627F20201A1042003740B4 /* SuperHeroListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F1E201A1042003740B4 /* SuperHeroListViewController.xib */; };
-		FA627F23201A12FF003740B4 /* SuperHeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F21201A12FF003740B4 /* SuperHeroTableViewCell.swift */; };
-		FA627F24201A12FF003740B4 /* SuperHeroTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F22201A12FF003740B4 /* SuperHeroTableViewCell.xib */; };
 		FA627F26201A1421003740B4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F25201A1421003740B4 /* Date+Extension.swift */; };
 		FA627F28201A1433003740B4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F27201A1433003740B4 /* String+Extension.swift */; };
 		FA627F2D201A1C64003740B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA627F2C201A1C64003740B4 /* Alamofire.framework */; };
+		FA627F34201A1F87003740B4 /* InteractorSuperHeroSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F33201A1F87003740B4 /* InteractorSuperHeroSearch.swift */; };
+		FA627F37201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F35201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.swift */; };
+		FA627F38201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F36201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.xib */; };
+		FA627F3B201A1FF0003740B4 /* SuperHeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627F39201A1FF0003740B4 /* SuperHeroCollectionViewCell.swift */; };
+		FA627F3C201A1FF0003740B4 /* SuperHeroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA627F3A201A1FF0003740B4 /* SuperHeroCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,11 +65,14 @@
 		FA627F18201A1001003740B4 /* SuperHeroDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroDetailViewController.xib; sourceTree = "<group>"; };
 		FA627F1D201A1042003740B4 /* SuperHeroListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroListViewController.swift; sourceTree = "<group>"; };
 		FA627F1E201A1042003740B4 /* SuperHeroListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroListViewController.xib; sourceTree = "<group>"; };
-		FA627F21201A12FF003740B4 /* SuperHeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroTableViewCell.swift; sourceTree = "<group>"; };
-		FA627F22201A12FF003740B4 /* SuperHeroTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroTableViewCell.xib; sourceTree = "<group>"; };
 		FA627F25201A1421003740B4 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		FA627F27201A1433003740B4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		FA627F2C201A1C64003740B4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FA627F33201A1F87003740B4 /* InteractorSuperHeroSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorSuperHeroSearch.swift; sourceTree = "<group>"; };
+		FA627F35201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroRowCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA627F36201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroRowCollectionViewCell.xib; sourceTree = "<group>"; };
+		FA627F39201A1FF0003740B4 /* SuperHeroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA627F3A201A1FF0003740B4 /* SuperHeroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +246,10 @@
 			children = (
 				FA627F1D201A1042003740B4 /* SuperHeroListViewController.swift */,
 				FA627F1E201A1042003740B4 /* SuperHeroListViewController.xib */,
-				FA627F21201A12FF003740B4 /* SuperHeroTableViewCell.swift */,
-				FA627F22201A12FF003740B4 /* SuperHeroTableViewCell.xib */,
+				FA627F35201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.swift */,
+				FA627F36201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.xib */,
+				FA627F39201A1FF0003740B4 /* SuperHeroCollectionViewCell.swift */,
+				FA627F3A201A1FF0003740B4 /* SuperHeroCollectionViewCell.xib */,
 			);
 			path = "SuperHero list";
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 		FA627F2A201A147D003740B4 /* SuperHero */ = {
 			isa = PBXGroup;
 			children = (
+				FA627F33201A1F87003740B4 /* InteractorSuperHeroSearch.swift */,
 			);
 			path = SuperHero;
 			sourceTree = "<group>";
@@ -378,9 +387,10 @@
 			files = (
 				FA627F1A201A1001003740B4 /* SuperHeroDetailViewController.xib in Resources */,
 				FA627EE82018A5A4003740B4 /* LaunchScreen.storyboard in Resources */,
-				FA627F24201A12FF003740B4 /* SuperHeroTableViewCell.xib in Resources */,
 				FA627EE52018A5A4003740B4 /* Assets.xcassets in Resources */,
+				FA627F3C201A1FF0003740B4 /* SuperHeroCollectionViewCell.xib in Resources */,
 				2DBA1D61F0418BD6AF453340 /* .swiftlint.yml in Resources */,
+				FA627F38201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.xib in Resources */,
 				FA627F20201A1042003740B4 /* SuperHeroListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,13 +436,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA627F28201A1433003740B4 /* String+Extension.swift in Sources */,
+				FA627F37201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.swift in Sources */,
 				FA627F1F201A1042003740B4 /* SuperHeroListViewController.swift in Sources */,
 				FA627EDE2018A5A4003740B4 /* AppDelegate.swift in Sources */,
 				FA627F19201A1001003740B4 /* SuperHeroDetailViewController.swift in Sources */,
 				2DBA151E6859D33F0BF70634 /* SuperHero.swift in Sources */,
 				FA627F26201A1421003740B4 /* Date+Extension.swift in Sources */,
+				FA627F34201A1F87003740B4 /* InteractorSuperHeroSearch.swift in Sources */,
 				2DBA195DD349713033BF3B59 /* NetworkLayer.swift in Sources */,
-				FA627F23201A12FF003740B4 /* SuperHeroTableViewCell.swift in Sources */,
+				FA627F3B201A1FF0003740B4 /* SuperHeroCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

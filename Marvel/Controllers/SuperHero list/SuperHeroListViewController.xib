@@ -1,13 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuperHeroListViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuperHeroListViewController" customModule="Marvel" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="cY8-T9-oAj" id="Mko-kX-NkC"/>
+                <outlet property="searchBar" destination="aiv-Ws-TXu" id="93e-eL-LgF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +21,69 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxt-rZ-SV2" userLabel="HeaderView">
+                    <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aiv-Ws-TXu">
+                            <rect key="frame" x="0.0" y="0.0" width="329" height="56"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-x3-4Sz">
+                            <rect key="frame" x="329" y="0.0" width="46" height="56"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="aiv-Ws-TXu" secondAttribute="bottom" id="F0B-nB-ssz"/>
+                        <constraint firstAttribute="bottom" secondItem="SCA-x3-4Sz" secondAttribute="bottom" id="Jo9-od-NPw"/>
+                        <constraint firstItem="SCA-x3-4Sz" firstAttribute="leading" secondItem="aiv-Ws-TXu" secondAttribute="trailing" id="f23-UV-42P"/>
+                        <constraint firstAttribute="trailing" secondItem="SCA-x3-4Sz" secondAttribute="trailing" id="fVJ-YR-Lip"/>
+                        <constraint firstItem="SCA-x3-4Sz" firstAttribute="top" secondItem="Nxt-rZ-SV2" secondAttribute="top" id="gsI-jE-UYA"/>
+                        <constraint firstItem="aiv-Ws-TXu" firstAttribute="top" secondItem="Nxt-rZ-SV2" secondAttribute="top" id="i4b-i9-bIv"/>
+                        <constraint firstItem="aiv-Ws-TXu" firstAttribute="leading" secondItem="Nxt-rZ-SV2" secondAttribute="leading" id="sBY-jn-YVk"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-3l-oKl" userLabel="ContentView">
+                    <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cY8-T9-oAj">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ba3-IB-wWU">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="eRk-k7-AIC"/>
+                                <outlet property="delegate" destination="-1" id="pcx-tf-mLr"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="cY8-T9-oAj" secondAttribute="trailing" id="POj-OH-VN9"/>
+                        <constraint firstItem="cY8-T9-oAj" firstAttribute="leading" secondItem="qH1-3l-oKl" secondAttribute="leading" id="gLN-uw-iAx"/>
+                        <constraint firstAttribute="bottom" secondItem="cY8-T9-oAj" secondAttribute="bottom" id="qgP-Q7-vdB"/>
+                        <constraint firstItem="cY8-T9-oAj" firstAttribute="top" secondItem="qH1-3l-oKl" secondAttribute="top" id="wXv-lM-6GG"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qH1-3l-oKl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7fZ-xX-Se8"/>
+                <constraint firstItem="qH1-3l-oKl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="D9q-Vz-Yf6"/>
+                <constraint firstItem="qH1-3l-oKl" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="WLQ-tL-vPh"/>
+                <constraint firstItem="Nxt-rZ-SV2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="d7e-Te-TEe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Nxt-rZ-SV2" secondAttribute="trailing" id="kEd-04-dtQ"/>
+                <constraint firstItem="Nxt-rZ-SV2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lQA-8E-mgF"/>
+                <constraint firstItem="qH1-3l-oKl" firstAttribute="top" secondItem="Nxt-rZ-SV2" secondAttribute="bottom" id="wrF-Lh-24g"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>
