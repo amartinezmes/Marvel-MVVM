@@ -14,6 +14,8 @@
 		2DBA1DCC7EAE5FF617A594CC /* SuperHeroCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A33CA313D8AB6DE9AEB /* SuperHeroCellViewModel.swift */; };
 		FA1ABB2D201A42F10051645C /* RepositorySuperHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ABB2C201A42F10051645C /* RepositorySuperHero.swift */; };
 		FA1ABB2F201B3F0E0051645C /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1ABB2E201B3F0E0051645C /* AlamofireImage.framework */; };
+		FA1ABB32201B40F10051645C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1ABB30201B40F10051645C /* RxSwift.framework */; };
+		FA1ABB33201B40F10051645C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1ABB31201B40F10051645C /* RxCocoa.framework */; };
 		FA627EDE2018A5A4003740B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA627EDD2018A5A4003740B4 /* AppDelegate.swift */; };
 		FA627EE52018A5A4003740B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA627EE42018A5A4003740B4 /* Assets.xcassets */; };
 		FA627EE82018A5A4003740B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA627EE62018A5A4003740B4 /* LaunchScreen.storyboard */; };
@@ -59,6 +61,8 @@
 		FA1ABB27201A382C0051645C /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA1ABB2C201A42F10051645C /* RepositorySuperHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySuperHero.swift; sourceTree = "<group>"; };
 		FA1ABB2E201B3F0E0051645C /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		FA1ABB30201B40F10051645C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		FA1ABB31201B40F10051645C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		FA627EDA2018A5A4003740B4 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA627EDD2018A5A4003740B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA627EE42018A5A4003740B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1ABB32201B40F10051645C /* RxSwift.framework in Frameworks */,
+				FA1ABB33201B40F10051645C /* RxCocoa.framework in Frameworks */,
 				FA1ABB2F201B3F0E0051645C /* AlamofireImage.framework in Frameworks */,
 				FA627F2D201A1C64003740B4 /* Alamofire.framework in Frameworks */,
 			);
@@ -294,6 +300,8 @@
 		FA627F2B201A1C63003740B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA1ABB31201B40F10051645C /* RxCocoa.framework */,
+				FA1ABB30201B40F10051645C /* RxSwift.framework */,
 				FA1ABB2E201B3F0E0051645C /* AlamofireImage.framework */,
 				FA627F2C201A1C64003740B4 /* Alamofire.framework */,
 			);
@@ -444,11 +452,15 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			name = "Carthage script";
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AlamofireImage.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class SuperHeroListViewModel {
     private let interactor: InteractorSuperHeroSearch
