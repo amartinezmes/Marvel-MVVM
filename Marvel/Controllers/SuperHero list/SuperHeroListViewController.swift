@@ -13,11 +13,14 @@ final class SuperHeroListViewController: UIViewController {
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var searchBar: UISearchBar!
 
+    private var listViewModel: SuperHeroListViewModel?
     private var numElementsByCol: CGFloat = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        listViewModel = SuperHeroListViewModel(interactor: InteractorSuperHeroSearch())
+        listViewModel?.fetch()
     }
 
     override func didReceiveMemoryWarning() {

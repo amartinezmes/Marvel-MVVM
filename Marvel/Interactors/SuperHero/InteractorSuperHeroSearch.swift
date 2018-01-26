@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+final class InteractorSuperHeroSearch {
+    private(set) var heroList: [SuperHero]
+
+    init() {
+        heroList = [SuperHero]()
+    }
+
+
+}
+
+extension InteractorSuperHeroSearch {
+    public func fetchAllHero(completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
+        RepositorySuperHero.shared.fetchItems(offset: heroList.count , completion: { heroes, error in
+            self.heroList.append(contentsOf: heroes)
+            completion(true, error)
+        }, pagination: nil)
+    }
+
+    public func fetchAllHero(by name: String) {
+
+    }
+}
