@@ -7,22 +7,31 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class SuperHeroRowCollectionViewCell: UICollectionViewCell {
+final class SuperHeroRowCollectionViewCell: SuperHeroCollectionViewCellBase {
     static public let reuseCellId: String = "SuperHeroRowID"
     static public let nibName: String = "SuperHeroRowCollectionViewCell"
-    
-    
-    @IBOutlet var labelTest: UILabel!
-    
-    
+
+    private var viewModel: SuperHeroCellViewModel?
+
+    @IBOutlet private var labelName: UILabel!
+    @IBOutlet private var labelDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    
+    override public func setupCell(viewModel: SuperHeroCellViewModel) {
+        super.setupCell(viewModel: viewModel)
+        self.viewModel = viewModel
 
-    
+        if let name = viewModel.name {
+            labelName.text = name
+        }
+
+        if let description = viewModel.description {
+            labelDescription.text = description
+        }
+    }
 }

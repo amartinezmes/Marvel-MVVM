@@ -16,6 +16,10 @@ final class InteractorSuperHeroSearch {
     }
 
 
+    public func resetList() {
+        heroList = [SuperHero]()
+    }
+
 }
 
 extension InteractorSuperHeroSearch {

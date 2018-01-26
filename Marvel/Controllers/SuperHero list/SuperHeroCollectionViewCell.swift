@@ -8,13 +8,26 @@
 
 import UIKit
 
-class SuperHeroCollectionViewCell: UICollectionViewCell {
+final class SuperHeroCollectionViewCell: SuperHeroCollectionViewCellBase {
     static public let reuseCellId: String = "SuperHeroCollectionCellID"
     static public let nibName: String = "SuperHeroCollectionViewCell"
 
+    private var viewModel: SuperHeroCellViewModel?
+
+
+    @IBOutlet private var labelTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+
+    override public func setupCell(viewModel: SuperHeroCellViewModel) {
+        super.setupCell(viewModel: viewModel)
+        self.viewModel = viewModel
+
+        if let name = viewModel.name {
+            labelTitle.text = name
+        }
     }
 
 }

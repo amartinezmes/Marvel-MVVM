@@ -11,6 +11,7 @@ final class SuperHero: Codable {
         case id
         case name
         case description
+        case thumbnail
     }
 
 
@@ -19,6 +20,7 @@ final class SuperHero: Codable {
     var description: String?
     private(set) var modified: Date?
     var resourceURI: String?
+    var thumbnail: Thumbnail?
 
 
     init(from decoder: Decoder) throws {
@@ -26,6 +28,7 @@ final class SuperHero: Codable {
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         description = try values.decode(String.self, forKey: .description)
+        thumbnail = try values.decode(Thumbnail.self, forKey: .thumbnail)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -33,5 +36,6 @@ final class SuperHero: Codable {
         try container.encode(name, forKey: .name)
         try container.encode(id, forKey: .id)
         try container.encode(description, forKey: .description)
+        try container.encode(thumbnail, forKey: .thumbnail)
     }
 }

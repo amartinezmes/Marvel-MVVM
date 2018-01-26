@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class SuperHeroListViewController: UIViewController {
 
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var searchBar: UISearchBar!
 
-    private var listViewModel: SuperHeroListViewModel?
+    private let disposeBag = DisposeBag()
+    private var viewModelList: SuperHeroListViewModel?
     private var numElementsByCol: CGFloat = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        listViewModel = SuperHeroListViewModel(interactor: InteractorSuperHeroSearch())
-        listViewModel?.fetch()
+        viewModelList = SuperHeroListViewModel(interactor: InteractorSuperHeroSearch())
+        setupRx(viewModel: viewModelList!)
+        viewModelList?.fetch()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +37,6 @@ final class SuperHeroListViewController: UIViewController {
         collectionView.refreshControl = UIRefreshControl()
         collectionView.refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         calculateLayoutCollectionItem()
-
     }
 
 
@@ -52,25 +55,43 @@ final class SuperHeroListViewController: UIViewController {
         }
     }
 
+    private func setupRx(viewModel: SuperHeroListViewModel) {
+        viewModel.numElements.asObservable().subscribe(onNext: { e in
+            self.collectionView.reloadData()
+         }, onError: { error in
+
+          }, onCompleted: {
+
+        }, onDisposed: {
+
+        }).disposed(by: disposeBag)
+    }
 
     @objc private func onRefresh() {
         collectionView.refreshControl?.endRefreshing()
+        viewModelList?.reset()
+        viewModelList?.fetch()
+    }
+
+    fileprivate func getCellId() -> String {
+        return SuperHeroCollectionViewCell.reuseCellId
     }
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SuperHeroListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        guard let numElements = viewModelList?.numElements else {
+            return 0
+        }
+        return numElements.value
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuperHeroRowCollectionViewCell.reuseCellId, for: indexPath) as! SuperHeroRowCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: getCellId(), for: indexPath) as! SuperHeroCollectionViewCellBase
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuperHeroCollectionViewCell.reuseCellId, for: indexPath) as! SuperHeroCollectionViewCell
-
-        if indexPath.row == 1 {
-            //cell.labelTest.text = "Esto es un test para ver qiue pasa si esto es mjy largo"
+        if let cellViewModel = viewModelList?.getCellViewModel(index: indexPath.row) {
+            cell.setupCell(viewModel: cellViewModel)
         }
 
         return cell
@@ -80,7 +101,7 @@ extension SuperHeroListViewController: UICollectionViewDelegate, UICollectionVie
 //MARK: - UICollectionViewDelegateFlowLayout
 extension SuperHeroListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let leftInset = (collectionView.frame.width) / 5
+        let leftInset = (collectionView.frame.width) / 4
         let rightInset = leftInset
 
         //return UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)

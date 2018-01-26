@@ -7,8 +7,11 @@ import Foundation
 import RxSwift
 
 final class SuperHeroListViewModel {
+    private let disposeBag = DisposeBag()
     private let interactor: InteractorSuperHeroSearch
-    public var numElements: Int? = 0
+
+    public var name = Variable<String>("")
+    public var numElements = Variable<Int>(0)
 
     init(interactor: InteractorSuperHeroSearch) {
         self.interactor = interactor
@@ -17,21 +20,26 @@ final class SuperHeroListViewModel {
     public func fetch() {
         interactor.fetchAllHero { b, error in
             if b {
-                self.numElements = self.interactor.heroList.count
+                self.numElements.value = self.interactor.heroList.count
             }
         }
     }
 
     public func fetchNextPage() {
-
+        fetch()
     }
 
     public func reset() {
-
+        interactor.resetList()
+        numElements.value = 0
     }
 
-    public func getCellViewModel(index: Int) {
-
+    public func getCellViewModel(index: Int) -> SuperHeroCellViewModel? {
+        if index < interactor.heroList.count {
+            let hero: SuperHero = interactor.heroList[index]
+            return SuperHeroCellViewModel(name: hero.name, description: hero.description, image: hero.thumbnail)
+        }
+        return nil
     }
 
 }

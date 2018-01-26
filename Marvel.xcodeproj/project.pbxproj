@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA11DC42CA88DA051C517C /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F6BDEEDE05BE7DC20C1 /* Thumbnail.swift */; };
 		2DBA151E6859D33F0BF70634 /* SuperHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C7B1D0D4A182DFE7C9B /* SuperHero.swift */; };
+		2DBA17BC5B97E6B37346A609 /* SuperHeroCollectionViewCellBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A6E14938198CEBDCBD0 /* SuperHeroCollectionViewCellBase.swift */; };
 		2DBA1841CAC4C69774600F81 /* SuperHeroListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA124DE5C6F01A4C5E4899 /* SuperHeroListViewModel.swift */; };
 		2DBA195DD349713033BF3B59 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA122345B9FB45E7C24A24 /* NetworkLayer.swift */; };
 		2DBA1D61F0418BD6AF453340 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1F3009487AC8D1E1A608 /* .swiftlint.yml */; };
@@ -56,8 +58,10 @@
 		2DBA122345B9FB45E7C24A24 /* NetworkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		2DBA124DE5C6F01A4C5E4899 /* SuperHeroListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroListViewModel.swift; sourceTree = "<group>"; };
 		2DBA1A33CA313D8AB6DE9AEB /* SuperHeroCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroCellViewModel.swift; sourceTree = "<group>"; };
+		2DBA1A6E14938198CEBDCBD0 /* SuperHeroCollectionViewCellBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroCollectionViewCellBase.swift; sourceTree = "<group>"; };
 		2DBA1C7B1D0D4A182DFE7C9B /* SuperHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHero.swift; sourceTree = "<group>"; };
 		2DBA1F3009487AC8D1E1A608 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = file.yml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		2DBA1F6BDEEDE05BE7DC20C1 /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		FA1ABB27201A382C0051645C /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA1ABB2C201A42F10051645C /* RepositorySuperHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySuperHero.swift; sourceTree = "<group>"; };
 		FA1ABB2E201B3F0E0051645C /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 		FA627F0C2018A5CC003740B4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2DBA1F6BDEEDE05BE7DC20C1 /* Thumbnail.swift */,
 				FA627F132018F553003740B4 /* SuperHero */,
 			);
 			path = Models;
@@ -276,6 +281,7 @@
 				FA627F36201A1FD3003740B4 /* SuperHeroRowCollectionViewCell.xib */,
 				FA627F39201A1FF0003740B4 /* SuperHeroCollectionViewCell.swift */,
 				FA627F3A201A1FF0003740B4 /* SuperHeroCollectionViewCell.xib */,
+				2DBA1A6E14938198CEBDCBD0 /* SuperHeroCollectionViewCellBase.swift */,
 			);
 			path = "SuperHero list";
 			sourceTree = "<group>";
@@ -486,6 +492,8 @@
 				FA627F3B201A1FF0003740B4 /* SuperHeroCollectionViewCell.swift in Sources */,
 				2DBA1841CAC4C69774600F81 /* SuperHeroListViewModel.swift in Sources */,
 				2DBA1DCC7EAE5FF617A594CC /* SuperHeroCellViewModel.swift in Sources */,
+				2DBA11DC42CA88DA051C517C /* Thumbnail.swift in Sources */,
+				2DBA17BC5B97E6B37346A609 /* SuperHeroCollectionViewCellBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

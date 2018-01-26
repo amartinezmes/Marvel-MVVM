@@ -13,32 +13,47 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SuperHeroCollectionCellID" id="gTV-IL-0wX" customClass="SuperHeroCollectionViewCell" customModule="Marvel" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="70" height="97"/>
+            <rect key="frame" x="0.0" y="0.0" width="106" height="135"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="70" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="106" height="135"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wAH-PP-qaU">
-                        <rect key="frame" x="10" y="5" width="50" height="50"/>
+                        <rect key="frame" x="13" y="5" width="80" height="80"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="Z3J-tF-bdF"/>
-                            <constraint firstAttribute="height" constant="50" id="g9i-RW-R50"/>
+                            <constraint firstAttribute="width" constant="80" id="Z3J-tF-bdF"/>
+                            <constraint firstAttribute="height" constant="80" id="g9i-RW-R50"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="n8n-i0-BQs">
+                        <rect key="frame" x="29.5" y="94" width="48" height="25"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="wAH-PP-qaU" secondAttribute="bottom" constant="42" id="9Fo-Za-NpE"/>
+                <constraint firstAttribute="bottom" secondItem="n8n-i0-BQs" secondAttribute="bottom" constant="16" id="8ft-mM-vfP"/>
+                <constraint firstItem="n8n-i0-BQs" firstAttribute="top" secondItem="wAH-PP-qaU" secondAttribute="bottom" constant="9" id="9Qb-Yt-av7"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n8n-i0-BQs" secondAttribute="trailing" constant="5" id="ANB-CH-iWh"/>
+                <constraint firstItem="n8n-i0-BQs" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Aqg-XF-cf5"/>
                 <constraint firstItem="wAH-PP-qaU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="DU2-tm-Ht9"/>
-                <constraint firstItem="wAH-PP-qaU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Iec-HY-Wn1"/>
-                <constraint firstAttribute="trailing" secondItem="wAH-PP-qaU" secondAttribute="trailing" constant="10" id="bSN-EV-iOn"/>
+                <constraint firstItem="n8n-i0-BQs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Hul-cs-rix"/>
+                <constraint firstItem="wAH-PP-qaU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Iec-HY-Wn1"/>
+                <constraint firstItem="wAH-PP-qaU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="WmH-kr-5xW"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wAH-PP-qaU" secondAttribute="trailing" constant="5" id="bSN-EV-iOn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="70" height="97"/>
-            <point key="canvasLocation" x="142" y="77.5"/>
+            <size key="customSize" width="106" height="135"/>
+            <connections>
+                <outlet property="image" destination="wAH-PP-qaU" id="EyT-Po-TtW"/>
+                <outlet property="labelTitle" destination="n8n-i0-BQs" id="YLp-PX-qaU"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="104.5"/>
         </collectionViewCell>
     </objects>
 </document>
