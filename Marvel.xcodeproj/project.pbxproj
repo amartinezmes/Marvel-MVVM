@@ -12,6 +12,8 @@
 		2DBA17BC5B97E6B37346A609 /* SuperHeroCollectionViewCellBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A6E14938198CEBDCBD0 /* SuperHeroCollectionViewCellBase.swift */; };
 		2DBA1841CAC4C69774600F81 /* SuperHeroListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA124DE5C6F01A4C5E4899 /* SuperHeroListViewModel.swift */; };
 		2DBA195DD349713033BF3B59 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA122345B9FB45E7C24A24 /* NetworkLayer.swift */; };
+		2DBA1981133DB20F31844E04 /* InteractorSuperHeroDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18AFB0AB7E37CC282FFE /* InteractorSuperHeroDetail.swift */; };
+		2DBA1C84E427154668BFB053 /* SuperHeroDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA114C8A5A6FCD5E4326B5 /* SuperHeroDetailViewModel.swift */; };
 		2DBA1D61F0418BD6AF453340 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1F3009487AC8D1E1A608 /* .swiftlint.yml */; };
 		2DBA1DCC7EAE5FF617A594CC /* SuperHeroCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A33CA313D8AB6DE9AEB /* SuperHeroCellViewModel.swift */; };
 		FA1ABB2D201A42F10051645C /* RepositorySuperHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ABB2C201A42F10051645C /* RepositorySuperHero.swift */; };
@@ -55,8 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DBA114C8A5A6FCD5E4326B5 /* SuperHeroDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailViewModel.swift; sourceTree = "<group>"; };
 		2DBA122345B9FB45E7C24A24 /* NetworkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		2DBA124DE5C6F01A4C5E4899 /* SuperHeroListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroListViewModel.swift; sourceTree = "<group>"; };
+		2DBA18AFB0AB7E37CC282FFE /* InteractorSuperHeroDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorSuperHeroDetail.swift; sourceTree = "<group>"; };
 		2DBA1A33CA313D8AB6DE9AEB /* SuperHeroCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroCellViewModel.swift; sourceTree = "<group>"; };
 		2DBA1A6E14938198CEBDCBD0 /* SuperHeroCollectionViewCellBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroCollectionViewCellBase.swift; sourceTree = "<group>"; };
 		2DBA1C7B1D0D4A182DFE7C9B /* SuperHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHero.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 			children = (
 				2DBA124DE5C6F01A4C5E4899 /* SuperHeroListViewModel.swift */,
 				2DBA1A33CA313D8AB6DE9AEB /* SuperHeroCellViewModel.swift */,
+				2DBA114C8A5A6FCD5E4326B5 /* SuperHeroDetailViewModel.swift */,
 			);
 			path = SuperHero;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				FA627F33201A1F87003740B4 /* InteractorSuperHeroSearch.swift */,
+				2DBA18AFB0AB7E37CC282FFE /* InteractorSuperHeroDetail.swift */,
 			);
 			path = SuperHero;
 			sourceTree = "<group>";
@@ -494,6 +500,8 @@
 				2DBA1DCC7EAE5FF617A594CC /* SuperHeroCellViewModel.swift in Sources */,
 				2DBA11DC42CA88DA051C517C /* Thumbnail.swift in Sources */,
 				2DBA17BC5B97E6B37346A609 /* SuperHeroCollectionViewCellBase.swift in Sources */,
+				2DBA1C84E427154668BFB053 /* SuperHeroDetailViewModel.swift in Sources */,
+				2DBA1981133DB20F31844E04 /* InteractorSuperHeroDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

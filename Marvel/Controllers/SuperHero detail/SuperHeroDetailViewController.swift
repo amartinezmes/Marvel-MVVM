@@ -7,29 +7,61 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class SuperHeroDetailViewController: UIViewController {
+
+    //MARK: - IBOutlets
+    @IBOutlet private var imageBackground: UIImageView!
+    @IBOutlet private var imageSuperHero: UIImageView! {
+        didSet {
+            imageSuperHero.layer.cornerRadius = 5
+        }
+    }
+
+    @IBOutlet private var labelName: UILabel!
+    @IBOutlet private var labelDescription: UILabel!
+
+    //MARK: - Properties
+    private let downloader: ImageDownloader = ImageDownloader()
+    private var viewModelSuperHeroDetail: SuperHeroDetailViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+
+
+
+    //MARK: - Class
+    init(interactor: InteractorSuperHeroDetail?) {
+        super.init(nibName: nil, bundle: nil)
+        guard let interactor = interactor else {
+            return
+        }
+        viewModelSuperHeroDetail = SuperHeroDetailViewModel(interactor: interactor)
+    }
+
+    convenience required init(coder aDecoder: NSCoder) {
+        self.init(interactor: nil)
+    }
+
+    private func downloadImage(url: String) {
+        let urlRequest = URLRequest(url: URL(string: url)!)
+
+        downloader.download(urlRequest) { response in
+            if let image = response.result.value {
+                self.imageBackground.image = image
+                self.imageSuperHero.image = image
+            }
+        }
+    }
 
 }

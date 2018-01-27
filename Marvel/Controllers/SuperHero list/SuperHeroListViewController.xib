@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuperHeroListViewController" customModule="Marvel" customModuleProvider="target">
             <connections>
+                <outlet property="buttonChangeLayout" destination="SCA-x3-4Sz" id="lOL-Ca-1HB"/>
                 <outlet property="collectionView" destination="cY8-T9-oAj" id="Mko-kX-NkC"/>
                 <outlet property="searchBar" destination="aiv-Ws-TXu" id="93e-eL-LgF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,9 +26,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxt-rZ-SV2" userLabel="HeaderView">
                     <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                     <subviews>
-                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aiv-Ws-TXu">
+                        <searchBar contentMode="redraw" placeholder="Search your superHero" translatesAutoresizingMaskIntoConstraints="NO" id="aiv-Ws-TXu">
                             <rect key="frame" x="0.0" y="0.0" width="329" height="56"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" textContentType="name"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-x3-4Sz">
                             <rect key="frame" x="329" y="0.0" width="46" height="56"/>
@@ -48,7 +49,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-3l-oKl" userLabel="ContentView">
                     <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cY8-T9-oAj">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="none" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY8-T9-oAj">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ba3-IB-wWU">

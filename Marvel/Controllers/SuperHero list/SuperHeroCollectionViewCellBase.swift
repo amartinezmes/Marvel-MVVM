@@ -10,7 +10,11 @@ import AlamofireImage
 class SuperHeroCollectionViewCellBase: UICollectionViewCell {
     private let downloader: ImageDownloader = ImageDownloader()
 
-    @IBOutlet private var image: UIImageView!
+    @IBOutlet private var image: UIImageView! {
+        didSet {
+            image.layer.cornerRadius = 5
+        }
+    }
 
     public func setupCell(viewModel: SuperHeroCellViewModel) {
         if let path = viewModel.thumbnail?.path,

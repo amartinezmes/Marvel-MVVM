@@ -16,7 +16,22 @@ final class RepositorySuperHero {
                            completion: @escaping (_ result: [SuperHero],_ error: Error?) -> Void,
                            pagination: ((_ total: Int) -> Void)?) {
 
-        NetworkLayer.shared.get(parameters: nil) { result, error in
+        fetchItems(by: nil, offset: offset, completion: completion, pagination: pagination)
+    }
+
+
+    public func fetchItems(by name: String?,
+                           offset: Int,
+                           completion: @escaping (_ result: [SuperHero],_ error: Error?) -> Void,
+                           pagination: ((_ total: Int) -> Void)?) {
+        var parameters: [String: Any] = [String: Any]()
+
+        if let searchString = name, !searchString.isEmpty {
+            parameters["nameStartsWith"] = searchString
+        }
+        parameters["offset"] = offset
+
+        NetworkLayer.shared.get(parameters: parameters) { result, error in
             var list: [SuperHero] = [SuperHero]()
 
             guard let data = result?["results"] as? [[String: Any]] else {
@@ -34,16 +49,15 @@ final class RepositorySuperHero {
         }
     }
 
+    public func fetchItem(by name: String,
+                          completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
 
-    public func fetchItems(by name: String, offset: Int) {
 
-    }
+}
 
-    public func fetchItem(by name: String) {
+    public func fetchItem(by id: Int,
+                          completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
 
-    }
-
-    public func fetchItem(by id: Int) {
 
     }
 

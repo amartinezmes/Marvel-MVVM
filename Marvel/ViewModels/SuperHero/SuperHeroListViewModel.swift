@@ -13,25 +13,55 @@ final class SuperHeroListViewModel {
     public var name = Variable<String>("")
     public var numElements = Variable<Int>(0)
 
+    public var layoutRow: Bool = true
+
+    private var numItemsLoaded:Int = 0
+
     init(interactor: InteractorSuperHeroSearch) {
         self.interactor = interactor
+
+         name.asObservable().subscribe(onNext: { s in
+             self.reset()
+             self.fetch(searchItem: s)
+         }, onError: { error in
+
+         }, onCompleted: {
+
+         }, onDisposed: {
+
+         }).disposed(by: disposeBag)
+
     }
 
-    public func fetch() {
-        interactor.fetchAllHero { b, error in
-            if b {
+    public func fetch(searchItem: String) {
+        interactor.fetchAllHero(by: searchItem) { success, error in
+            if success {
                 self.numElements.value = self.interactor.heroList.count
             }
         }
     }
 
-    public func fetchNextPage() {
-        fetch()
+    public func fetch() {
+        interactor.fetchAllHero(by: nil) { success, error in
+            if success {
+                self.numElements.value = self.interactor.heroList.count
+            }
+        }
+    }
+
+    public func fetchNextPageIfNeeded(currentItem: Int) -> Bool {
+        if (numElements.value - 1) == currentItem && numItemsLoaded < currentItem {
+            numItemsLoaded = currentItem
+            fetch(searchItem: name.value)
+            return true
+        }
+        return false
     }
 
     public func reset() {
         interactor.resetList()
         numElements.value = 0
+        numItemsLoaded = 0
     }
 
     public func getCellViewModel(index: Int) -> SuperHeroCellViewModel? {

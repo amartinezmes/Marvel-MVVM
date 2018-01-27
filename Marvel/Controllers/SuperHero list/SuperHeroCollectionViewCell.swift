@@ -14,7 +14,7 @@ final class SuperHeroCollectionViewCell: SuperHeroCollectionViewCellBase {
 
     private var viewModel: SuperHeroCellViewModel?
 
-
+    //MARK: - IBOutlets
     @IBOutlet private var labelTitle: UILabel!
     
     override func awakeFromNib() {

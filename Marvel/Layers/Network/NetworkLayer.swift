@@ -13,11 +13,16 @@ final class NetworkLayer {
 
 
     public func get(parameters: [String: Any]?, completion: @escaping (_ result: [String: Any]?,_ error: Error?) -> Void) {
+        var params: Parameters = generateDefaultParameters()
+        if let parametersFromRequest = parameters {
+            params.merge(parametersFromRequest) { (any: Any, any1: Any) -> Any in
+                return any
+            }
+        }
 
-        Alamofire.request(NetworkLayer.endPoint, method: .get, parameters: generateDefaultParameters(), encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        Alamofire.request(NetworkLayer.endPoint, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             switch response.result {
             case .success:
-                print("Validation Successful")
                 guard let json = response.result.value as? [String: Any],
                       let data = json["data"] as? [String: Any] else {
                     completion(nil, nil)
@@ -55,16 +60,17 @@ extension NetworkLayer {
 
     fileprivate func generateDefaultParameters() -> [String: Any] {
         var parameters: [String: Any] = [:]
+        let ts: String = String(format: "%.0f", Date().timeIntervalSince1970.rounded())
 
-        parameters[defaultParameters.apiKey.rawValue] = "4ab94ec8a75339fc386d8340f7dd2cc9"
-        parameters[defaultParameters.timeStamp.rawValue] = 1516884892
-        parameters[defaultParameters.hash.rawValue] = "d03ab1702ebedfce3b5e806aa347ebec"
+        parameters[defaultParameters.apiKey.rawValue] = publicKey
+        parameters[defaultParameters.timeStamp.rawValue] = ts
+        parameters[defaultParameters.hash.rawValue] = generateHash(publicKey: publicKey, timeStamp: ts, privateKey: privateKey)
         return parameters
     }
 
     fileprivate func generateHash(publicKey: String, timeStamp: String, privateKey: String) -> String? {
-
-        return nil
+        let stringToMD5: String = timeStamp + privateKey + publicKey
+        return stringToMD5.MD5()
     }
 
 }

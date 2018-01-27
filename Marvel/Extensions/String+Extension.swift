@@ -23,7 +23,7 @@ extension String {
             }
         }
 
-        return String(data: digestData, encoding: .utf8)
+        return digestData.map { String(format: "%02hhx", $0) }.joined()
     }
 
 }
