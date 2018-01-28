@@ -13,6 +13,7 @@ class SuperHeroCollectionViewCellBase: UICollectionViewCell {
     @IBOutlet private var image: UIImageView! {
         didSet {
             image.layer.cornerRadius = 5
+            image.clipsToBounds = true
         }
     }
 

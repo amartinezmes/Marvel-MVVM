@@ -9,13 +9,14 @@
 import UIKit
 import AlamofireImage
 
-class SuperHeroDetailViewController: UIViewController {
+final class SuperHeroDetailViewController: UIViewController {
 
     //MARK: - IBOutlets
     @IBOutlet private var imageBackground: UIImageView!
     @IBOutlet private var imageSuperHero: UIImageView! {
         didSet {
             imageSuperHero.layer.cornerRadius = 5
+            imageSuperHero.clipsToBounds = true
         }
     }
 
@@ -28,16 +29,18 @@ class SuperHeroDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupController()
+    }
 
-
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
     }
-
 
 
     //MARK: - Class
@@ -53,6 +56,17 @@ class SuperHeroDetailViewController: UIViewController {
         self.init(interactor: nil)
     }
 
+    private func setupController() {
+        labelName.text = viewModelSuperHeroDetail?.name
+        labelDescription.text = viewModelSuperHeroDetail?.description
+        guard let imagePath = viewModelSuperHeroDetail?.thumbnail?.path,
+              let fileExtension = viewModelSuperHeroDetail?.thumbnail?.fileExtension else {
+            return
+        }
+        downloadImage(url: imagePath + "." + fileExtension)
+    }
+
+
     private func downloadImage(url: String) {
         let urlRequest = URLRequest(url: URL(string: url)!)
 
@@ -63,5 +77,4 @@ class SuperHeroDetailViewController: UIViewController {
             }
         }
     }
-
 }

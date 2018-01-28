@@ -23,6 +23,7 @@ final class SuperHeroListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         setupCollectionView()
         viewModelList = SuperHeroListViewModel(interactor: InteractorSuperHeroSearch())
         setupRx(viewModel: viewModelList!)
@@ -31,6 +32,11 @@ final class SuperHeroListViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
 
     private func setupCollectionView() {
@@ -146,7 +152,14 @@ extension SuperHeroListViewController: UICollectionViewDelegate, UICollectionVie
 
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let hero = viewModelList?.getSuperHero(index: indexPath.row) else {
+            return
+        }
 
+        let interactorDetail: InteractorSuperHeroDetail = InteractorSuperHeroDetail(hero: hero)
+        let viewControllerDetail: SuperHeroDetailViewController = SuperHeroDetailViewController(interactor: interactorDetail)
+
+        navigationController?.pushViewController(viewControllerDetail, animated: true)
     }
 }
 
@@ -158,5 +171,24 @@ extension SuperHeroListViewController: UICollectionViewDelegateFlowLayout {
 
         //return UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         return UIEdgeInsets.zero
+    }
+}
+
+extension SuperHeroListViewController:  UISearchBarDelegate {
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+        viewModelList?.reset()
+        viewModelList?.fetch()
     }
 }

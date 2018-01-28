@@ -15,6 +15,9 @@ final class SuperHeroDetailViewModel {
 
     init(interactor: InteractorSuperHeroDetail) {
         self.interactor = interactor
+        name = self.interactor?.hero?.name
+        description = self.interactor?.hero?.description
+        thumbnail = self.interactor?.hero?.thumbnail
     }
 
 

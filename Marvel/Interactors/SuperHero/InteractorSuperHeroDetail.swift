@@ -6,7 +6,7 @@
 import Foundation
 
 final class InteractorSuperHeroDetail {
-    private var hero: SuperHero?
+    private(set) var hero: SuperHero?
 
 
     init() {

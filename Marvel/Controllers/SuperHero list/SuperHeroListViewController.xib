@@ -29,6 +29,9 @@
                         <searchBar contentMode="redraw" placeholder="Search your superHero" translatesAutoresizingMaskIntoConstraints="NO" id="aiv-Ws-TXu">
                             <rect key="frame" x="0.0" y="0.0" width="329" height="56"/>
                             <textInputTraits key="textInputTraits" textContentType="name"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="bXX-kI-dWV"/>
+                            </connections>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-x3-4Sz">
                             <rect key="frame" x="329" y="0.0" width="46" height="56"/>

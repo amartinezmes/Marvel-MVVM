@@ -21,8 +21,10 @@ final class SuperHeroListViewModel {
         self.interactor = interactor
 
          name.asObservable().subscribe(onNext: { s in
-             self.reset()
-             self.fetch(searchItem: s)
+             if !s.isEmpty {
+                 self.reset()
+                 self.fetch(searchItem: s)
+             }
          }, onError: { error in
 
          }, onCompleted: {
@@ -68,6 +70,14 @@ final class SuperHeroListViewModel {
         if index < interactor.heroList.count {
             let hero: SuperHero = interactor.heroList[index]
             return SuperHeroCellViewModel(name: hero.name, description: hero.description, image: hero.thumbnail)
+        }
+        return nil
+    }
+
+
+    public func getSuperHero(index: Int) -> SuperHero? {
+        if index < interactor.heroList.count {
+            return interactor.heroList[index]
         }
         return nil
     }
