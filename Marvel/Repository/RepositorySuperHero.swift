@@ -35,7 +35,9 @@ final class RepositorySuperHero {
            let data = sourceData as? [[String: Any]] {
             print("USE CACHE")
             let list: [SuperHero] = self.convertData(data: data)
-            completion(list, nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                completion(list, nil)
+            }
         } else {
             print("NETWORK")
             NetworkLayer.shared.get(parameters: parameters) { result, error in
@@ -44,9 +46,7 @@ final class RepositorySuperHero {
                 }
 
                 LocalStorageLayer.shared.addRequest(key: parameters.description, value: data)
-
                 let list: [SuperHero] = self.convertData(data: data)
-
                 completion(list, error)
             }
         }
