@@ -31,21 +31,24 @@ final class RepositorySuperHero {
         }
         parameters["offset"] = offset
 
-        NetworkLayer.shared.get(parameters: parameters) { result, error in
-            var list: [SuperHero] = [SuperHero]()
-
-            guard let data = result?["results"] as? [[String: Any]] else {
-                return
-            }
-
-            for item in data {
-                if let itemData = try? JSONSerialization.data(withJSONObject: item),
-                    let superHero: SuperHero = try? JSONDecoder().decode(SuperHero.self, from: itemData) {
-                    list.append(superHero)
+        if let sourceData = LocalStorageLayer.shared.getRequest(key: parameters.description),
+           let data = sourceData as? [[String: Any]] {
+            print("USE CACHE")
+            let list: [SuperHero] = self.convertData(data: data)
+            completion(list, nil)
+        } else {
+            print("NETWORK")
+            NetworkLayer.shared.get(parameters: parameters) { result, error in
+                guard let data = result?["results"] as? [[String: Any]] else {
+                    return
                 }
-            }
 
-            completion(list, error)
+                LocalStorageLayer.shared.addRequest(key: parameters.description, value: data)
+
+                let list: [SuperHero] = self.convertData(data: data)
+
+                completion(list, error)
+            }
         }
     }
 
@@ -53,12 +56,25 @@ final class RepositorySuperHero {
                           completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
 
 
-}
+    }
 
     public func fetchItem(by id: Int,
                           completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
 
 
+    }
+
+    private func convertData(data: [[String: Any]]) -> [SuperHero] {
+        var list: [SuperHero] = [SuperHero]()
+
+        for item in data {
+            if let itemData = try? JSONSerialization.data(withJSONObject: item),
+               let superHero: SuperHero = try? JSONDecoder().decode(SuperHero.self, from: itemData) {
+                list.append(superHero)
+            }
+        }
+
+        return list
     }
 
 }

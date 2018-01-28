@@ -59,13 +59,14 @@ final class SuperHeroListViewController: UIViewController {
 
     private func calculateLayoutCollectionItem() {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.estimatedItemSize = CGSize.init(width: 1, height: 1)
+            layout.estimatedItemSize = CGSize.init(width: 2, height: 2)
         }
     }
 
     private func setupRx(viewModel: SuperHeroListViewModel) {
         viewModel.numElements.asObservable().subscribe(onNext: { e in
             self.collectionView.reloadData()
+            self.userHasScrolled = false
         }, onError: { error in
 
         }, onCompleted: {
@@ -80,6 +81,7 @@ final class SuperHeroListViewController: UIViewController {
                 return
             }
             self.viewModelList?.layoutRow = !value
+            self.collectionView.collectionViewLayout.invalidateLayout()
             self.collectionView.reloadData()
         }, onError: { error in
 
@@ -145,7 +147,7 @@ extension SuperHeroListViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if userHasScrolled {
             if let fetched = viewModelList?.fetchNextPageIfNeeded(currentItem: indexPath.row), fetched == true {
-                userHasScrolled = false
+
             }
         }
     }
@@ -165,13 +167,15 @@ extension SuperHeroListViewController: UICollectionViewDelegate, UICollectionVie
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension SuperHeroListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let leftInset = (collectionView.frame.width) / 4
         let rightInset = leftInset
 
-        //return UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
-        return UIEdgeInsets.zero
-    }
+        return UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
+        //return UIEdgeInsets.zero
+    }*/
+
+
 }
 
 extension SuperHeroListViewController:  UISearchBarDelegate {
