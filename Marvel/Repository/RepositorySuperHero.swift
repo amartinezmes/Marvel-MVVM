@@ -12,7 +12,7 @@ final class RepositorySuperHero {
     static let shared: RepositorySuperHero = RepositorySuperHero()
 
 
-    public func fetchItems(offset: Int,
+    final public func fetchItems(offset: Int,
                            completion: @escaping (_ result: [SuperHero],_ error: Error?) -> Void,
                            pagination: ((_ total: Int) -> Void)?) {
 
@@ -20,7 +20,7 @@ final class RepositorySuperHero {
     }
 
 
-    public func fetchItems(by name: String?,
+    final public func fetchItems(by name: String?,
                            offset: Int,
                            completion: @escaping (_ result: [SuperHero],_ error: Error?) -> Void,
                            pagination: ((_ total: Int) -> Void)?) {
@@ -52,13 +52,13 @@ final class RepositorySuperHero {
         }
     }
 
-    public func fetchItem(by name: String,
+    final public func fetchItem(by name: String,
                           completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
 
 
     }
 
-    public func fetchItem(by id: Int,
+    final public func fetchItem(by id: Int,
                           completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
 
 
@@ -73,7 +73,6 @@ final class RepositorySuperHero {
                 list.append(superHero)
             }
         }
-
         return list
     }
 

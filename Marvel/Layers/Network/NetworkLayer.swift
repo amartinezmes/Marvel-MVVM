@@ -7,12 +7,19 @@ import Foundation
 import Alamofire
 
 final class NetworkLayer {
+    
+    /// Singleton
     static let shared: NetworkLayer = NetworkLayer()
 
     fileprivate static let endPoint: String = "https://gateway.marvel.com/v1/public/characters"
 
-
-    public func get(parameters: [String: Any]?, completion: @escaping (_ result: [String: Any]?,_ error: Error?) -> Void) {
+    
+    /// Request to the server with a get
+    ///
+    /// - Parameters:
+    ///   - parameters: Parameters to send with the request
+    ///   - completion: completion block with the result or the error
+    final public func get(parameters: [String: Any]?, completion: @escaping (_ result: [String: Any]?,_ error: Error?) -> Void) {
         var params: Parameters = generateDefaultParameters()
         if let parametersFromRequest = parameters {
             params.merge(parametersFromRequest) { (any: Any, any1: Any) -> Any in
@@ -51,6 +58,7 @@ extension NetworkLayer {
     }
 
 
+    
     fileprivate enum defaultParameters: String {
         case timeStamp = "ts"
         case hash
@@ -58,6 +66,9 @@ extension NetworkLayer {
     }
 
 
+    /// Generate the default parameters that always we send with the request
+    ///
+    /// - Returns: Dictionary with the default parameters
     fileprivate func generateDefaultParameters() -> [String: Any] {
         var parameters: [String: Any] = [:]
         let ts: String = String(format: "%.0f", Date().timeIntervalSince1970.rounded())
@@ -68,6 +79,14 @@ extension NetworkLayer {
         return parameters
     }
 
+    
+    /// Generate the hash that the server request
+    ///
+    /// - Parameters:
+    ///   - publicKey: Marvel public key
+    ///   - timeStamp: Timestamp of the request
+    ///   - privateKey: Marvel private key
+    /// - Returns: String with the MD5 of the given parameters
     fileprivate func generateHash(publicKey: String, timeStamp: String, privateKey: String) -> String? {
         let stringToMD5: String = timeStamp + privateKey + publicKey
         return stringToMD5.MD5()

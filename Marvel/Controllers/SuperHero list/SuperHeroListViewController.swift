@@ -39,6 +39,7 @@ final class SuperHeroListViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
 
+    
     private func setupCollectionView() {
         registerCollectionCells()
         collectionView.isPrefetchingEnabled = false

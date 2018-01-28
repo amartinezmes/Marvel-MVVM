@@ -16,18 +16,18 @@ final class InteractorSuperHeroSearch {
     }
 
 
-    public func resetList() {
+    final public func resetList() {
         heroList = [SuperHero]()
     }
 
 }
 
 extension InteractorSuperHeroSearch {
-    public func fetchAllHero(completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
+    final public func fetchAllHero(completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
         fetchAllHero(by: nil, completion: completion)
     }
 
-    public func fetchAllHero(by name: String?, completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
+    final public func fetchAllHero(by name: String?, completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
         RepositorySuperHero.shared.fetchItems(by: name, offset: heroList.count, completion: { heroes, error in
             self.heroList.append(contentsOf: heroes)
             completion(true, error)

@@ -35,7 +35,6 @@ class SuperHeroCollectionViewCellBase: UICollectionViewCell {
     }
 
     private func downloadImage(url: String) {
-
         let urlRequest = URLRequest(url: URL(string: url)!)
 
         downloader.download(urlRequest) { response in

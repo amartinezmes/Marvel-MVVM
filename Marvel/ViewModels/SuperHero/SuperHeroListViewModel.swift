@@ -35,7 +35,11 @@ final class SuperHeroListViewModel {
 
     }
 
-    public func fetch(searchItem: String) {
+    
+    /// Fetch the data with the given search term
+    ///
+    /// - Parameter searchItem: String with the text to search
+    final public func fetch(searchItem: String) {
         interactor.fetchAllHero(by: searchItem) { success, error in
             if success {
                 self.numElements.value = self.interactor.heroList.count
@@ -43,7 +47,9 @@ final class SuperHeroListViewModel {
         }
     }
 
-    public func fetch() {
+    
+    /// Fetch all hero
+    final public func fetch() {
         interactor.fetchAllHero(by: nil) { success, error in
             if success {
                 self.numElements.value = self.interactor.heroList.count
@@ -51,7 +57,12 @@ final class SuperHeroListViewModel {
         }
     }
 
-    public func fetchNextPageIfNeeded(currentItem: Int) -> Bool {
+    
+    /// Fetch the next page if it's needed
+    ///
+    /// - Parameter currentItem: The current displayed item
+    /// - Returns: True if a new page is fetched, otherwise false
+    final public func fetchNextPageIfNeeded(currentItem: Int) -> Bool {
         if (numElements.value - 1) == currentItem && numItemsLoaded < currentItem {
             numItemsLoaded = currentItem
             fetch(searchItem: name.value)
@@ -60,13 +71,13 @@ final class SuperHeroListViewModel {
         return false
     }
 
-    public func reset() {
+    final public func reset() {
         interactor.resetList()
         numElements.value = 0
         numItemsLoaded = 0
     }
 
-    public func getCellViewModel(index: Int) -> SuperHeroCellViewModel? {
+    final public func getCellViewModel(index: Int) -> SuperHeroCellViewModel? {
         if index < interactor.heroList.count {
             let hero: SuperHero = interactor.heroList[index]
             return SuperHeroCellViewModel(name: hero.name, description: hero.description, image: hero.thumbnail)
@@ -75,7 +86,7 @@ final class SuperHeroListViewModel {
     }
 
 
-    public func getSuperHero(index: Int) -> SuperHero? {
+    final public func getSuperHero(index: Int) -> SuperHero? {
         if index < interactor.heroList.count {
             return interactor.heroList[index]
         }
