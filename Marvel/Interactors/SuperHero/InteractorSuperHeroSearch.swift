@@ -19,6 +19,7 @@ final class InteractorSuperHeroSearch {
     }
 
 
+    /// Clear internal superhero list
     final public func resetList() {
         heroList = [SuperHero]()
     }
@@ -26,10 +27,21 @@ final class InteractorSuperHeroSearch {
 }
 
 extension InteractorSuperHeroSearch {
+    
+    
+    /// Fetch all hero without filters
+    ///
+    /// - Parameter completion: Completion block
     final public func fetchAllHero(completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
         fetchAllHero(by: nil, completion: completion)
     }
 
+    
+    /// Fetch all Hero using a text filter if it is informed
+    ///
+    /// - Parameters:
+    ///   - name: Name to search
+    ///   - completion: Completion block
     final public func fetchAllHero(by name: String?, completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
         repository.fetchItems(by: name, offset: heroList.count, completion: { heroes, error in
             self.heroList.append(contentsOf: heroes)

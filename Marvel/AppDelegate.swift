@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if TEST
             print("UNIT TESTING")
 #else
+        #if UITEST
+            LocalStorageLayer.shared.addFakeData()
+        #endif
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController.init(rootViewController: SuperHeroListViewController())
         window?.makeKeyAndVisible()

@@ -71,12 +71,19 @@ final class SuperHeroListViewModel {
         return false
     }
 
+    
+    /// Clear the view status
     final public func reset() {
         interactor.resetList()
         numElements.value = 0
         numItemsLoaded = 0
     }
 
+    
+    /// Obtain a cell view model for the given index
+    ///
+    /// - Parameter index: Index selected
+    /// - Returns: Cell view model
     final public func getCellViewModel(index: Int) -> SuperHeroCellViewModel? {
         if index < interactor.heroList.count {
             let hero: SuperHero = interactor.heroList[index]
@@ -86,6 +93,10 @@ final class SuperHeroListViewModel {
     }
 
 
+    /// Get a super hero by index
+    ///
+    /// - Parameter index: Index selected
+    /// - Returns: SuperHero for the given index
     final public func getSuperHero(index: Int) -> SuperHero? {
         if index < interactor.heroList.count {
             return interactor.heroList[index]

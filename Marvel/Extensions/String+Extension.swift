@@ -10,6 +10,9 @@ import Foundation
 
 extension String {
 
+    /// Calculate MD5 for the current string
+    ///
+    /// - Returns: String with the MD5 or nil
     public func MD5() -> String? {
         guard let messageData = self.data(using:.utf8) else {
             return nil

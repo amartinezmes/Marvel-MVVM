@@ -166,19 +166,7 @@ extension SuperHeroListViewController: UICollectionViewDelegate, UICollectionVie
     }
 }
 
-//MARK: - UICollectionViewDelegateFlowLayout
-extension SuperHeroListViewController: UICollectionViewDelegateFlowLayout {
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let leftInset = (collectionView.frame.width) / 4
-        let rightInset = leftInset
-
-        return UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
-        //return UIEdgeInsets.zero
-    }*/
-
-
-}
-
+//MARK: - UISearchBarDelegate
 extension SuperHeroListViewController:  UISearchBarDelegate {
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

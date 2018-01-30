@@ -63,6 +63,7 @@ class NetworkLayer {
 
 }
 
+//MARK: - NetworkLayerProtocol
 extension NetworkLayer: NetworkLayerProtocol {
 
     /// Request to the server with a get

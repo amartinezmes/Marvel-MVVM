@@ -15,7 +15,6 @@ final class LocalStorageLayer {
     init() {
 
     }
-
     
     /// Check if the key exists on the cache
     ///
@@ -50,5 +49,44 @@ final class LocalStorageLayer {
     /// - Returns: Request value saved on the cache
     final public func getRequest(key: String) -> Any? {
         return cache[key]
+    }
+
+
+    final public func addFakeData() {
+        #if UITEST
+            let data: [[String: Any]] = [
+            ["id": 1,
+             "name" : "test1",
+             "description" : "description1",
+             "thumbnail": [
+                 "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                 "extension":"jpg"
+             ]],
+            ["id": 2,
+             "name" : "test2",
+             "description" : "description2",
+             "thumbnail": [
+                 "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                 "extension":"jpg"
+             ]],
+            ["id": 3,
+             "name" : "test3",
+             "description" : "description3",
+             "thumbnail": [
+                 "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                 "extension":"jpg"
+             ]],
+            ["id": 4,
+             "name" : "test4",
+             "description" : "description4",
+             "thumbnail": [
+                 "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                 "extension":"jpg"
+             ]]
+        ]
+        LocalStorageLayer.shared.addRequest(key: "[\"offset\": 0]", value: data)
+        LocalStorageLayer.shared.addRequest(key: "[\"offset\": 4]", value: [String, Any]())
+
+        #endif
     }
 }
