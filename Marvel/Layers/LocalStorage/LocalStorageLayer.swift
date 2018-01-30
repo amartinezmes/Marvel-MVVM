@@ -22,8 +22,8 @@ final class LocalStorageLayer {
     /// - Parameter key: String key to search
     /// - Returns: True if the key exists, otherwise false
     final public func existsRequest(key: String) -> Bool {
-        return cache.contains { key, value in
-            return key == key
+        return cache.contains { keyToCompare, value in
+            return keyToCompare == key
         }
     }
 

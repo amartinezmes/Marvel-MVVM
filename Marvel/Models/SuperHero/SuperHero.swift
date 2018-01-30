@@ -21,8 +21,7 @@ final class SuperHero: Codable {
     private(set) var modified: Date?
     var resourceURI: String?
     var thumbnail: Thumbnail?
-
-
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)

@@ -9,10 +9,13 @@
 import Foundation
 
 final class InteractorSuperHeroSearch {
+    private let repository: RepositorySuperHero
+
     private(set) var heroList: [SuperHero]
 
-    init() {
+    init(repository: RepositorySuperHero = RepositorySuperHero.shared) {
         heroList = [SuperHero]()
+        self.repository = repository
     }
 
 
@@ -28,7 +31,7 @@ extension InteractorSuperHeroSearch {
     }
 
     final public func fetchAllHero(by name: String?, completion: @escaping (_ succed: Bool, _ error: Error?) -> Void) {
-        RepositorySuperHero.shared.fetchItems(by: name, offset: heroList.count, completion: { heroes, error in
+        repository.fetchItems(by: name, offset: heroList.count, completion: { heroes, error in
             self.heroList.append(contentsOf: heroes)
             completion(true, error)
         }, pagination: nil)

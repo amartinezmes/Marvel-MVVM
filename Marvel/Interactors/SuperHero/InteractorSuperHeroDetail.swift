@@ -6,15 +6,18 @@
 import Foundation
 
 final class InteractorSuperHeroDetail {
+    private let repository: RepositorySuperHero
+
     private(set) var hero: SuperHero?
 
 
-    init() {
-
+    init(repository: RepositorySuperHero = RepositorySuperHero.shared) {
+        self.repository = repository
     }
 
     init(hero: SuperHero) {
         self.hero = hero
+        self.repository = RepositorySuperHero.shared
     }
 
 

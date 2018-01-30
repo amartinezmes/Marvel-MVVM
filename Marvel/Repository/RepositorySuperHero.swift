@@ -11,7 +11,14 @@ import Foundation
 final class RepositorySuperHero {
     static let shared: RepositorySuperHero = RepositorySuperHero()
 
+    private let network: NetworkLayer
+    private let localStorage: LocalStorageLayer
 
+    init(network: NetworkLayer = NetworkLayer.shared, localStorage: LocalStorageLayer = LocalStorageLayer.shared) {
+        self.network = network
+        self.localStorage = localStorage
+    }
+    
     final public func fetchItems(offset: Int,
                            completion: @escaping (_ result: [SuperHero],_ error: Error?) -> Void,
                            pagination: ((_ total: Int) -> Void)?) {
@@ -31,7 +38,7 @@ final class RepositorySuperHero {
         }
         parameters["offset"] = offset
 
-        if let sourceData = LocalStorageLayer.shared.getRequest(key: parameters.description),
+        if let sourceData = localStorage.getRequest(key: parameters.description),
            let data = sourceData as? [[String: Any]] {
             print("USE CACHE")
             let list: [SuperHero] = self.convertData(data: data)
@@ -40,30 +47,47 @@ final class RepositorySuperHero {
             }
         } else {
             print("NETWORK")
-            NetworkLayer.shared.get(parameters: parameters) { result, error in
+            network.get(parameters: parameters) { result, error in
                 guard let data = result?["results"] as? [[String: Any]] else {
                     return
                 }
 
-                LocalStorageLayer.shared.addRequest(key: parameters.description, value: data)
+                self.localStorage.addRequest(key: parameters.description, value: data)
                 let list: [SuperHero] = self.convertData(data: data)
                 completion(list, error)
             }
         }
     }
 
+    
+    /// Fetch item using the hero name
+    ///
+    /// - Parameters:
+    ///   - name: Name to search
+    ///   - completion: Completion block with the super hero and the error
     final public func fetchItem(by name: String,
-                          completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
+                          completion: @escaping (_ result: SuperHero?,_ error: Error?) -> Void) {
 
 
     }
 
+    
+    /// Fetch an item using the object Id
+    ///
+    /// - Parameters:
+    ///   - id: Id to fetch
+    ///   - completion: Completion block with the superHero and the error
     final public func fetchItem(by id: Int,
-                          completion: @escaping (_ result: SuperHero,_ error: Error?) -> Void) {
+                          completion: @escaping (_ result: SuperHero?,_ error: Error?) -> Void) {
 
 
     }
 
+    
+    /// Convert the given array of dictionary to a SuperHero array
+    ///
+    /// - Parameter data: Data to convert
+    /// - Returns: Array of SuperHero
     private func convertData(data: [[String: Any]]) -> [SuperHero] {
         var list: [SuperHero] = [SuperHero]()
 
