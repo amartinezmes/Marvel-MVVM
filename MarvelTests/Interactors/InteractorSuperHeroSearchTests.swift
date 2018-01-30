@@ -18,6 +18,7 @@ class InteractorSuperHeroSearchTests: XCTestCase {
     override func setUp() {
         super.setUp()
         networkMock = NetworkLayerMock()
+        networkMock?.fakeData = fakeData()
         repository = RepositorySuperHero(network: networkMock!, localStorage: LocalStorageLayer.shared)
         interactor = InteractorSuperHeroSearch.init(repository: repository!)
     }
@@ -29,6 +30,30 @@ class InteractorSuperHeroSearchTests: XCTestCase {
         super.tearDown()
     }
 
+    func testGivenResponse_whenFetchAllHero_thenReturnSuccess() {
+        interactor?.fetchAllHero(by: nil, completion: { (success, error) in
+            XCTAssertTrue(success)
+            XCTAssertTrue(self.interactor?.heroList.count == 2)
+        })
+    }
 
-
+    private func fakeData() -> [String: Any] {
+        return ["results" : [
+            ["id": 1,
+             "name" : "test1",
+             "description" : "description1",
+             "thumbnail": [
+                "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                "extension":"jpg"
+                ]],
+            ["id": 2,
+             "name" : "test2",
+             "description" : "description2",
+             "thumbnail": [
+                "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                "extension":"jpg"
+                ]]
+            ]
+        ]
+    }
 }

@@ -11,10 +11,10 @@ import Foundation
 final class RepositorySuperHero {
     static let shared: RepositorySuperHero = RepositorySuperHero()
 
-    private let network: NetworkLayer
+    private let network: NetworkLayerProtocol
     private let localStorage: LocalStorageLayer
 
-    init(network: NetworkLayer = NetworkLayer.shared, localStorage: LocalStorageLayer = LocalStorageLayer.shared) {
+    init(network: NetworkLayerProtocol = NetworkLayer.shared, localStorage: LocalStorageLayer = LocalStorageLayer.shared) {
         self.network = network
         self.localStorage = localStorage
     }

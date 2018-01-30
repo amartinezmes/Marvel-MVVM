@@ -70,7 +70,7 @@ extension NetworkLayer: NetworkLayerProtocol {
     /// - Parameters:
     ///   - parameters: Parameters to send with the request
     ///   - completion: completion block with the result or the error
-    public func get(parameters: [String: Any]?, completion: @escaping (_ result: [String: Any]?,_ error: Error?) -> Void) {
+    func get(parameters: [String: Any]?, completion: @escaping (_ result: [String: Any]?,_ error: Error?) -> Void) {
         var params: Parameters = generateDefaultParameters()
         if let parametersFromRequest = parameters {
             params.merge(parametersFromRequest) { (any: Any, any1: Any) -> Any in

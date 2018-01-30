@@ -10,18 +10,10 @@ import Foundation
 @testable import Marvel
 
 
-final class NetworkLayerMock: NetworkLayer {
+final class NetworkLayerMock: NetworkLayerProtocol {
+    var fakeData: [String: Any] = [String: Any]()
 
-}
-
-extension NetworkLayerProtocol where Self: NetworkLayerMock {
     func get(parameters: [String : Any]?, completion: @escaping ([String : Any]?, Error?) -> Void) {
-        completion(self.fakeData(), nil)
-    }
-
-    private func fakeData() -> [String: Any] {
-        return ["data" : "any"]
+        completion(self.fakeData, nil)
     }
 }
-
-
