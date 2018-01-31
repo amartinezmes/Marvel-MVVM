@@ -23,14 +23,49 @@ class MarvelUITests: XCTestCase {
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testDetailSuperHero() {
+        let app = XCUIApplication()
+        let collectionViewsQuery = app.collectionViews
+        collectionViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["test1"]/*[[".cells.staticTexts[\"test1\"]",".staticTexts[\"test1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSearchSpiderMan() {
+        
+        let app = XCUIApplication()
+        let searchYourSuperheroSearchField = app.searchFields["Search your superHero"]
+        searchYourSuperheroSearchField.tap()
+        searchYourSuperheroSearchField.typeText("Spider")
+        app/*@START_MENU_TOKEN@*/.buttons["Search"]/*[[".keyboards",".buttons[\"Buscar\"]",".buttons[\"Search\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["spider1"]/*[[".cells.staticTexts[\"spider1\"]",".staticTexts[\"spider1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+    }
+    
+    
+    func testLayoutCollection() {
+        
+        let app = XCUIApplication()
+        app.buttons["Layout"].tap()
+        
+        let collectionViewsQuery = app.collectionViews
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.tap()
+        
+        let marvelSuperherodetailviewNavigationBar = app.navigationBars["Marvel.SuperHeroDetailView"]
+        let backButton = marvelSuperherodetailviewNavigationBar.buttons["Back"]
+        backButton.tap()
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.tap()
+        marvelSuperherodetailviewNavigationBar.tap()
+        backButton.tap()
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 2).children(matching: .other).element.children(matching: .other).element.tap()
+        backButton.tap()
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 3).children(matching: .other).element.children(matching: .other).element.tap()
+        backButton.tap()
+        
+    }
+    
+    func testDetailSuperHeroWithScroll() {
+        let app = XCUIApplication()
+        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo"]/*[[".cells.staticTexts[\"Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo\"]",".staticTexts[\"Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.scrollViews.otherElements.staticTexts["Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo"].swipeUp()
+
     }
     
 }

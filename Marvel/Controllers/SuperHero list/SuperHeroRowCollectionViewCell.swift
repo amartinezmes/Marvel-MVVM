@@ -28,6 +28,7 @@ final class SuperHeroRowCollectionViewCell: SuperHeroCollectionViewCellBase {
 
         if let name = viewModel.name {
             labelName.text = name
+            labelName.accessibilityIdentifier = name
         }
 
         if let description = viewModel.description {

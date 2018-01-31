@@ -71,7 +71,7 @@ final class LocalStorageLayer {
              ]],
             ["id": 3,
              "name" : "test3",
-             "description" : "description3",
+             "description" : "Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo. Description superlarga que debe provocar que se genera un scroll para poder probar dicho scroll que seguro que funcionará, pero es necesario esta prueba para saberlo",
              "thumbnail": [
                  "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
                  "extension":"jpg"
@@ -85,7 +85,20 @@ final class LocalStorageLayer {
              ]]
         ]
         LocalStorageLayer.shared.addRequest(key: "[\"offset\": 0]", value: data)
-        LocalStorageLayer.shared.addRequest(key: "[\"offset\": 4]", value: [String, Any]())
+        LocalStorageLayer.shared.addRequest(key: "[\"offset\": 4]", value: [[String: Any]]())
+
+        let dataSpider: [[String: Any]] = [
+            ["id": 5,
+             "name" : "spider1",
+             "description" : "description1",
+             "thumbnail": [
+                 "path":"http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                 "extension":"jpg"
+             ]]
+        ]
+
+        LocalStorageLayer.shared.addRequest(key: "[\"offset\": 0, \"nameStartsWith\": \"Spider\"]", value: dataSpider)
+        LocalStorageLayer.shared.addRequest(key: "[\"offset\": 1, \"nameStartsWith\": \"Spider\"]", value: [[String: Any]]())
 
         #endif
     }

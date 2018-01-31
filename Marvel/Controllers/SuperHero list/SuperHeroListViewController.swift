@@ -93,7 +93,7 @@ final class SuperHeroListViewController: UIViewController {
         }).disposed(by: disposeBag)
 
 
-        searchBar.rx.text.throttle(0.5, scheduler: MainScheduler.instance)
+        searchBar.rx.text.debounce(1, scheduler: MainScheduler.instance)
         .subscribe(onNext: { s in
             if let text = s {
                 viewModel.name.value = text
@@ -183,5 +183,9 @@ extension SuperHeroListViewController:  UISearchBarDelegate {
         searchBar.resignFirstResponder()
         viewModelList?.reset()
         viewModelList?.fetch()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
