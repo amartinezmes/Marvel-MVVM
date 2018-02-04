@@ -24,13 +24,11 @@ class NetworkLayer {
     }
 
     private var publicKey: String {
-        return "4ab94ec8a75339fc386d8340f7dd2cc9"
-        //return "yourKEY"
+        return "your public KEY"
     }
 
     private var privateKey: String {
-        return "cdf43f2c2dce72cce5a121ea55c74cdd578bffff"
-        //return "yourKEY"
+        return "your private KEY"
     }
 
 
